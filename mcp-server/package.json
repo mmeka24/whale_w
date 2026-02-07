@@ -5,19 +5,17 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
-    "start": "node build/index.js",
-    "test": "node test-mcp.js"
+    "start": "node build/index.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.73.0",
     "@modelcontextprotocol/sdk": "^1.0.4",
+    "viem": "^2.21.54",
     "axios": "^1.7.9",
-    "dotenv": "^16.4.7",
-    "viem": "^2.21.54"
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
+    "typescript": "^5.7.2",
     "@types/node": "^22.10.2",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "tsx": "^4.19.2"
   }
 }
