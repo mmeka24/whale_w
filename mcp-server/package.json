@@ -1,12 +1,23 @@
 {
   "name": "mcp-server",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["mcp", "model-context-protocol"],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "MCP Server for whale_w project",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "axios": "^1.13.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.18.0"
+  }
 }
