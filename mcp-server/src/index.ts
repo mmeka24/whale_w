@@ -7,8 +7,8 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import dotenv from "dotenv";
-import { getWalletTransactions, getEthBalance } from "./services/blockchain.js";
-import { patternAnalyzer } from "./services/patternAnalyzer.js";
+import { getWalletTransactions, getEthBalance } from "./blockchain.js";
+import { patternAnalyzer } from "./patternAnalyzer.js";
 import { Pattern } from "./types.js";
 
 dotenv.config();
