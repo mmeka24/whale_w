@@ -9,7 +9,7 @@ import {
 import dotenv from "dotenv";
 import { getWalletTransactions, getEthBalance } from "./blockchain.js";
 import { patternAnalyzer } from "./patternAnalyzer.js";
-import { Pattern } from "./types.js";
+import { Pattern } from "./type.js";
 
 dotenv.config();
 
@@ -91,10 +91,23 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
 
+  if (!args || typeof args !== 'object') {
+    return {
+      content: [{ type: "text", text: "Error: Invalid arguments provided" }],
+      isError: true,
+    };
+  }
+
   try {
     if (name === "learn_whale_patterns") {
+      if (typeof args.address !== 'string') {
+        return {
+          content: [{ type: "text", text: "Error: address must be a string" }],
+          isError: true,
+        };
+      }
       const address = args.address.toLowerCase();
-      const limit = args.limit || 50;
+      const limit = typeof args.limit === 'number' ? args.limit : 50;
 
       console.error(`🔍 Learning patterns for ${address}...`);
 
@@ -122,6 +135,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
 
     if (name === "check_whale_activity") {
+      if (typeof args.address !== 'string') {
+        return {
+          content: [{ type: "text", text: "Error: address must be a string" }],
+          isError: true,
+        };
+      }
       const address = args.address.toLowerCase();
 
       console.error(`👀 Checking activity for ${address}...`);
@@ -167,6 +186,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
 
     if (name === "get_whale_summary") {
+      if (typeof args.address !== 'string') {
+        return {
+          content: [{ type: "text", text: "Error: address must be a string" }],
+          isError: true,
+        };
+      }
       const address = args.address.toLowerCase();
 
       console.error(`📊 Getting summary for ${address}...`);
