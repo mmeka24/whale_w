@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createPublicClient, http, formatUnits } from "viem";
 import { mainnet } from "viem/chains";
-import { Transaction } from "../types.js";
+import { Transaction } from "./types.js";
 
 // Free public RPC
 const publicClient = createPublicClient({

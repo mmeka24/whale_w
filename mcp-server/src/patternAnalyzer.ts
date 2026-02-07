@@ -1,4 +1,4 @@
-import { Transaction, Pattern } from "../types.js";
+import { Transaction, Pattern } from "./types.js";
 import { analyzeWithAI } from "./ai.js";
 
 interface TransactionSession {

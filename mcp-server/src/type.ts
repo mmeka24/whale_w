@@ -34,4 +34,3 @@ export interface WhaleAnalysis {
     riskProfile: "conservative" | "moderate" | "aggressive"
   }
 }
-EOF
